@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Navigate, useLocation, useNavigate, useParams } from "react-router";
-import { Row, Col } from "antd";
+import { Row, Col, Input, Button } from "antd";
 import "./index.css";
 
-interface P{}
+interface P {}
 
 export default (props: P) => {
 	const params = useParams();
@@ -19,7 +19,15 @@ export default (props: P) => {
 	return (
 		<>
 			<Row>
-				<Col>home</Col>
+				<Col>
+					<div className="listContainer">
+						<div className="search">
+							<Input.Search />
+							<Button>筛选</Button>
+						</div>
+						<div className="list"></div>
+					</div>
+				</Col>
 			</Row>
 		</>
 	);

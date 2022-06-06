@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { Navigate, Outlet, useLocation, useNavigate, useParams } from "react-router";
+import { Navigate, useLocation, useNavigate, useParams } from "react-router";
 import { Row, Col } from "antd";
 import "./index.css";
 
-interface P {}
+interface P{}
 
 export default (props: P) => {
 	const params = useParams();
@@ -19,14 +19,7 @@ export default (props: P) => {
 	return (
 		<>
 			<Row>
-				<Col>
-					<header>
-						<button>设置</button>
-						<p>Professor DB</p>
-						<button>用户</button>
-					</header>
-					<Outlet />
-				</Col>
+				<Col>{}</Col>
 			</Row>
 		</>
 	);
