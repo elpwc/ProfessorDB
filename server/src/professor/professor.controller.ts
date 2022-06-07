@@ -1,9 +1,19 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { ProfessorService } from './professor.service';
 import { CreateProfessorDto } from './dto/create-professor.dto';
 import { UpdateProfessorDto } from './dto/update-professor.dto';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('professor')
+@ApiTags('Professor')
 export class ProfessorController {
   constructor(private readonly professorService: ProfessorService) {}
 
@@ -23,7 +33,10 @@ export class ProfessorController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateProfessorDto: UpdateProfessorDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateProfessorDto: UpdateProfessorDto,
+  ) {
     return this.professorService.update(+id, updateProfessorDto);
   }
 
