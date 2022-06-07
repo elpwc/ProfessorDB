@@ -10,8 +10,11 @@ import {
 import { ProfessorCommentService } from './professor_comment.service';
 import { CreateProfessorCommentDto } from './dto/create-professor_comment.dto';
 import { UpdateProfessorCommentDto } from './dto/update-professor_comment.dto';
+import { ApiResponse, ApiTags } from '@nestjs/swagger';
+import { Professor } from 'src/professor/entities/professor.entity';
 
-@Controller('professor/comment')
+@Controller('professorComment')
+@ApiTags('professorComment')
 export class ProfessorCommentController {
   constructor(
     private readonly professorCommentService: ProfessorCommentService,
@@ -23,11 +26,13 @@ export class ProfessorCommentController {
   }
 
   @Get()
+  @ApiResponse({ status: 200, description: 'success', type: Array })
   findAll() {
     return this.professorCommentService.findAll();
   }
 
   @Get(':id')
+  @ApiResponse({ status: 200, description: 'success', type: Professor })
   findOne(@Param('id') id: string) {
     return this.professorCommentService.findOne(+id);
   }

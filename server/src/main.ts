@@ -25,7 +25,12 @@ async function bootstrap() {
 
   const options: SwaggerDocumentOptions = {
     operationIdFactory: (controllerKey: string, methodKey: string) => {
-      return controllerKey + methodKey;
+      console.log(
+        controllerKey,
+        methodKey,
+        methodKey + controllerKey.substring(0, controllerKey.length - 10),
+      );
+      return methodKey + controllerKey.substring(0, controllerKey.length - 10);
     },
   };
 
