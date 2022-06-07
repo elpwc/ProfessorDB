@@ -44,7 +44,7 @@ async function bootstrap() {
 
   app.use(
     cors({
-      origin: 'http://localhost:3000',
+      origin: 'http://localhost:3004',
       methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
       allowedHeaders: ['Content-Type'],
     }),

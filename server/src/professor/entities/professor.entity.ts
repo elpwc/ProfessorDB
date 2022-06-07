@@ -8,31 +8,35 @@ export class Professor {
   @ApiProperty()
   id: number;
 
-  @Column({ length: 16 })
+  @Column({ length: 16, default: '' })
   @ApiProperty()
   namecn: string;
 
-  @Column({ length: 16 })
+  @Column({ length: 16, default: '' })
   @ApiProperty()
   namejp: string;
 
-  @Column({ length: 32 })
+  @Column({ length: 32, default: '' })
   @ApiProperty()
   nameen: string;
 
-  @Column({ length: 32 })
+  @Column({ length: 32, default: '' })
   @ApiProperty()
   university: string;
 
-  @Column({ length: 1024 })
+  @Column({ length: 1024, default: '' })
   @ApiProperty()
   photo: string;
 
-  @Column({ length: 64 })
+  @Column({ length: 64, default: '' })
   @ApiProperty()
   subject: string;
 
-  @Column({ length: 4096 })
+  @Column({ length: 64, default: '' })
+  @ApiProperty()
+  direction: string;
+
+  @Column({ length: 4096, default: '' })
   @ApiProperty()
   description: string;
 

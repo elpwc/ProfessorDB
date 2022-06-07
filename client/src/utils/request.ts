@@ -1,6 +1,6 @@
 import axios, { AxiosRequestHeaders, Method } from "axios";
 import cookie from "react-cookies";
-const appconfig = require("../appconfig");
+import appconfig from "../appconfig";
 
 // 更新services里的接口的方法：npm run openapi
 

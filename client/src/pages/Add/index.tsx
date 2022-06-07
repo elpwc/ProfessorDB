@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Navigate, useLocation, useNavigate, useParams } from "react-router";
-import { Row, Col } from "antd";
+import { Row, Col, Button } from "antd";
 import "./index.css";
+import AddForm from "../../components/AddForm";
 
 interface P{}
 
@@ -19,7 +20,9 @@ export default (props: P) => {
 	return (
 		<>
 			<Row>
-				<Col>{}</Col>
+				<Col>
+					<AddForm />
+				</Col>
 			</Row>
 		</>
 	);

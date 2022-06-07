@@ -23,5 +23,8 @@ export class CreateProfessorDto {
   subject: string;
 
   @ApiProperty()
+  direction: string;
+
+  @ApiProperty()
   description: string;
 }

@@ -25,5 +25,5 @@
   },
   "include": [
     "src","server"
-, "appconfig.ts"  ]
+, "src/appconfig", "openapi.config.ts"  ]
 }

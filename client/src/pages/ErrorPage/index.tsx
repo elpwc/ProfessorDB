@@ -19,7 +19,7 @@ export default (props: P) => {
 	return (
 		<>
 			<Row>
-				<Col>{}</Col>
+				<Col>404喵</Col>
 			</Row>
 		</>
 	);
