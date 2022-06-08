@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Navigate, useLocation, useNavigate, useParams } from "react-router";
 import { Row, Col } from "antd";
 import "./index.css";
+import { OuterLinkSVG } from "../../utils/svg";
 
 interface P {}
 
@@ -19,13 +20,39 @@ export default (props: P) => {
 	return (
 		<div className="aboutContainer">
 			<div className="titleContainer">
-				<p className="title">Professor DB</p>
-				<p>日本大学院导师数据库</p>
+				<p style={{ fontSize: "1.2rem" }}>
+					<ruby>
+						日本大学院<rp>(</rp>
+						<rt>润日</rt>
+						<rp>)</rp>
+					</ruby>
+					导师数据库
+				</p>
+				<hr />
+				<p>准备开润但实在不知道该怎么选学校选教授然后发现群里大家也一样所以抽空建立了这个数据库</p>
+				<p>总之欢迎大家补充喵~</p>
+				<p>祝大家都有一个成功的润喵</p>
+				<p>
+					灵感来自于
+					<a href="https://zhuanlan.zhihu.com/p/451410022" target="_blank">
+						《日本大学院计算机SGU英文项目冲浪指南》
+						<sup>
+							<OuterLinkSVG w={8} h={8} />
+						</sup>
+					</a>
+					中的表格
+				</p>
 			</div>
 
 			<div className="identity">
 				<p className="author">
-					author: <a href="https://github.com/elpwc" target="_blank">@elpwc</a>
+					author:{" "}
+					<a href="https://github.com/elpwc" target="_blank">
+						@elpwc
+						<sup>
+							<OuterLinkSVG w={8} h={8} />
+						</sup>
+					</a>
 				</p>
 				<p>elpwc@hotmail.com</p>
 
@@ -44,6 +71,9 @@ export default (props: P) => {
 						欢迎前来贡献、提issue→
 						<a href="https://github.com/elpwc/ProfessorDB" target="_blank">
 							こ↑こ↓
+							<sup>
+								<OuterLinkSVG w={8} h={8} />
+							</sup>
 						</a>
 					</div>
 				</div>
