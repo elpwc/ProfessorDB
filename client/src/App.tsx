@@ -7,6 +7,7 @@ import Main from "./pages/Main";
 import ErrorPage from "./pages/ErrorPage";
 import Professor from "./pages/Professor";
 import Add from "./pages/Add";
+import About from "./pages/About";
 
 function App() {
 	return (
@@ -15,6 +16,7 @@ function App() {
 				<Route path="" element={<Main />}>
 					<Route index element={<Home />}></Route>
 					<Route path="add" element={<Add />}></Route>
+					<Route path="about" element={<About />}></Route>
 					<Route path="professor" element={<Home />}></Route>
 					<Route path="professor/:id" element={<Professor />}></Route>
 					<Route path="404" element={<ErrorPage />}></Route>

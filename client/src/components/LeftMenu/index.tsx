@@ -42,7 +42,7 @@ export default () => {
 				</svg>
 			),
 			title: "关于",
-			to: "",
+			to: "/about",
 			route: "about",
 		},
 	];
