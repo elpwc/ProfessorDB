@@ -18,4 +18,17 @@ header button {
 	background-color: transparent;
 	border: none;
     height: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+@media(any-hover:hover){
+    header button:hover{
+        background-color: rgb(64, 99, 151);
+    }
+}
+
+header button:active{
+    background-color: rgb(96, 129, 179);
 }

@@ -1,5 +1,5 @@
 .addbtn {
-	position: absolute;
+	position: fixed;
 	right: 20px;
 	bottom: 30px;
 	z-index: 5;
@@ -22,7 +22,7 @@
 
 .list {
 	position: absolute;
-	top: 90px;
+	top: 30px;
 	right: 0;
 	bottom: 0;
 	left: 0;

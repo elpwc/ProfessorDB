@@ -4,6 +4,7 @@ import { Row, Col } from "antd";
 import "./index.css";
 import { Header } from "antd/lib/layout/layout";
 import { Link } from "react-router-dom";
+import LeftMenu from "../../components/LeftMenu";
 
 interface P {}
 
@@ -11,6 +12,8 @@ export default (props: P) => {
 	const params = useParams();
 	const navigate = useNavigate();
 	const mylocation = useLocation();
+
+	const [showLeft, setshowLeft]: [boolean, any] = useState(true);
 
 	// let currentId: string = params.id as string;
 
@@ -21,13 +24,15 @@ export default (props: P) => {
 	return (
 		<>
 			<header>
-				<Link to="">
-					<button>
-						<svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" viewBox="0 0 16 16">
-							<path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
-						</svg>
-					</button>
-				</Link>
+				<button
+					onClick={() => {
+						setshowLeft(!showLeft);
+					}}
+				>
+					<svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" viewBox="0 0 16 16">
+						<path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+					</svg>
+				</button>
 
 				<Link to="/">
 					<p>Professor DB</p>
@@ -41,7 +46,20 @@ export default (props: P) => {
 					</button>
 				</Link>
 			</header>
-			<Outlet />
+
+			<Row style={{ height: "100%" }}>
+				{showLeft ? (
+					<Col span={4}>
+						<LeftMenu />
+					</Col>
+				) : (
+					<></>
+				)}
+				
+				<Col span={showLeft ? 20 : 24}>
+					<Outlet />
+				</Col>
+			</Row>
 		</>
 	);
 };
