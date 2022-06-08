@@ -4,7 +4,7 @@ import { Row, Col, Button } from "antd";
 import "./index.css";
 import AddForm from "../../components/AddForm";
 
-interface P{}
+interface P {}
 
 export default (props: P) => {
 	const params = useParams();
@@ -18,8 +18,8 @@ export default (props: P) => {
 	}, []);
 
 	return (
-		<>
-					<AddForm />
-		</>
+		<div className="addformContainer">
+			<AddForm />
+		</div>
 	);
 };
