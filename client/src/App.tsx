@@ -8,6 +8,7 @@ import ErrorPage from "./pages/ErrorPage";
 import Professor from "./pages/Professor";
 import Add from "./pages/Add";
 import About from "./pages/About";
+import TestPage from "./pages/TestPage";
 
 function App() {
 	return (
@@ -17,6 +18,7 @@ function App() {
 					<Route index element={<Home />}></Route>
 					<Route path="add" element={<Add />}></Route>
 					<Route path="about" element={<About />}></Route>
+					<Route path="test" element={<TestPage />}></Route>
 					<Route path="professor" element={<Home />}></Route>
 					<Route path="professor/:id" element={<Professor />}></Route>
 					<Route path="404" element={<ErrorPage />}></Route>
