@@ -48,6 +48,14 @@ export class Professor {
   @ApiProperty()
   recommendation: number;
 
+  @Column({ default: -1 })
+  @ApiProperty()
+  haiwang: number;
+
+  @Column({ default: -1 })
+  @ApiProperty()
+  replyrate: number;
+
   @Column({ length: 4096, default: '' })
   @ApiProperty()
   description: string;

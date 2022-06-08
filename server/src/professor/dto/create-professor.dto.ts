@@ -32,6 +32,12 @@ export class CreateProfessorDto {
   recommendation: number;
 
   @ApiProperty()
+  haiwang: number;
+
+  @ApiProperty()
+  replyrate: number;
+
+  @ApiProperty()
   direction: string;
 
   @ApiProperty()
