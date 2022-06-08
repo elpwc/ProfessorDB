@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Navigate, useLocation, useNavigate, useParams } from "react-router";
-import { Row, Col, Input, Button } from "antd";
+import { Row, Col, Input, Button, Rate } from "antd";
 import "./index.css";
 import { findAllProfessor } from "../../services/api/Professor";
 import { Link } from "react-router-dom";
@@ -36,32 +36,43 @@ export default (props: P) => {
 
 	return (
 		<>
-			<Row>
-				<Col>
-					<div className="listContainer">
-						{/*add button*/}
-						<Link to="/add">
-							<div className="addbtn">+</div>
-						</Link>
-
-						<div className="search">
-							<Input.Search />
-							<Button>筛选</Button>
-						</div>
-
-						<div className="list">
-							{professors.map((professor: API.Professor) => {
-								return (
-									<div>
-										{professor.id}
-										{professor.namejp}
-									</div>
-								);
-							})}
-						</div>
+			<div className="listContainer">
+				{/*add button*/}
+				<Link to="/add">
+					<div className="addbtn">
+						<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 16 16">
+							<path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+						</svg>
 					</div>
-				</Col>
-			</Row>
+				</Link>
+
+				<div className="search">
+					<Input.Search placeholder="搜索教授/学校/专攻" />
+					<Button>筛选</Button>
+				</div>
+
+				<div className="list">
+					{professors.map((professor: API.Professor) => {
+						return (
+							<div className="listitem">
+								<div className="itemproperties">
+									<div>
+										<span>{professor.namejp}</span>
+									</div>
+									<p>{professor.university + " " + professor.subject}</p>
+									<p>{professor.direction}</p>
+									<div>
+										推荐度: <Rate disabled defaultValue={2} />
+									</div>
+								</div>
+								<div>
+									<img src={professor.photo} height="80px" />
+								</div>
+							</div>
+						);
+					})}
+				</div>
+			</div>
 		</>
 	);
 };

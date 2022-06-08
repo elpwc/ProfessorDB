@@ -19,11 +19,7 @@ export default (props: P) => {
 
 	return (
 		<>
-			<Row>
-				<Col>
 					<AddForm />
-				</Col>
-			</Row>
 		</>
 	);
 };

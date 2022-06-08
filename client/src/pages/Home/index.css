@@ -1,10 +1,64 @@
 .addbtn {
 	position: absolute;
-	right: 30px;
+	right: 20px;
 	bottom: 30px;
+	z-index: 5;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
 	width: 50px;
 	height: 50px;
 	color: white;
+	text-align: center;
 	background-color: rgb(24, 55, 103);
 	border-radius: 15px;
+	box-shadow: 0 0 5px 0 gray;
+}
+
+.search {
+	display: flex;
+}
+
+.list {
+	position: absolute;
+	top: 90px;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	overflow-y: scroll;
+  padding: 5px;
+}
+
+.listitem {
+	display: flex;
+	justify-content: space-between;
+	height: fit-content;
+	padding: 5px;
+	border-bottom: solid 1px rgb(179, 196, 223);
+}
+
+.itemproperties {
+	font-family: serif;
+}
+
+.itemproperties p {
+	margin: 0;
+}
+
+
+.itemproperties div:first-child{
+}
+
+.itemproperties div:first-child span:first-child{
+	font-size: 1.3rem;
+	font-family: sans-serif;
+}
+
+.itemproperties div:first-child div{
+	font-family: sans-serif;
 }

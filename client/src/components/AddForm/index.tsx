@@ -28,6 +28,15 @@ export default () => {
 			<FormItem label="方向" name="direction">
 				<Input />
 			</FormItem>
+			<FormItem label="邮箱" name="email">
+				<Input />
+			</FormItem>
+			<FormItem label="网站" name="website">
+				<Input />
+			</FormItem>
+			<FormItem label="推荐度" name="recommendation">
+				<Input />
+			</FormItem>
 			<FormItem label="描述" name="description">
 				<Input />
 			</FormItem>

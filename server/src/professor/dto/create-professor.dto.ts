@@ -23,6 +23,15 @@ export class CreateProfessorDto {
   subject: string;
 
   @ApiProperty()
+  email: string;
+
+  @ApiProperty()
+  website: string;
+
+  @ApiProperty()
+  recommendation: number;
+
+  @ApiProperty()
   direction: string;
 
   @ApiProperty()

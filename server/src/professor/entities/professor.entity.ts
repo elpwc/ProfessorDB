@@ -36,6 +36,18 @@ export class Professor {
   @ApiProperty()
   direction: string;
 
+  @Column({ length: 128, default: '' })
+  @ApiProperty()
+  email: string;
+
+  @Column({ length: 128, default: '' })
+  @ApiProperty()
+  website: string;
+
+  @Column({ default: -1 })
+  @ApiProperty()
+  recommendation: number;
+
   @Column({ length: 4096, default: '' })
   @ApiProperty()
   description: string;
