@@ -1,0 +1,35 @@
+.listitem {
+	display: flex;
+	justify-content: space-between;
+	height: fit-content;
+	padding: 5px;
+	border-bottom: solid 1px rgb(179, 196, 223);
+  transition: all 0.2s;
+}
+
+@media(any-hover:hover){
+  .listitem:hover{
+    background-color: azure;
+  }
+}
+
+.listitem:active {
+  background-color: rgb(202, 226, 226);
+}
+
+.itemproperties {
+	font-family: serif;
+}
+
+.itemproperties p {
+	margin: 0;
+}
+
+.itemproperties div:first-child span:first-child {
+	font-size: 1.3rem;
+	font-family: sans-serif;
+}
+
+.itemproperties div:first-child div {
+	font-family: sans-serif;
+}

@@ -4,6 +4,7 @@ import { Row, Col, Input, Button, Rate } from "antd";
 import "./index.css";
 import { findAllProfessor } from "../../services/api/Professor";
 import { Link } from "react-router-dom";
+import ListItem from "./components/ListItem";
 
 interface P {}
 
@@ -54,21 +55,9 @@ export default (props: P) => {
 				<div className="list">
 					{professors.map((professor: API.Professor) => {
 						return (
-							<div className="listitem">
-								<div className="itemproperties">
-									<div>
-										<span>{professor.namejp}</span>
-									</div>
-									<p>{professor.university + " " + professor.subject}</p>
-									<p>{professor.direction}</p>
-									<div>
-										推荐度: <Rate disabled defaultValue={2} />
-									</div>
-								</div>
-								<div>
-									<img src={professor.photo} height="80px" />
-								</div>
-							</div>
+							<Link to={"/professor/" + professor.id}>
+								<ListItem professor={professor} />
+							</Link>
 						);
 					})}
 				</div>
