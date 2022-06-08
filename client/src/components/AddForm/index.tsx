@@ -1,6 +1,7 @@
 import { Button, Form, Input, Radio, Rate } from "antd";
 import { useState } from "react";
 import { createProfessor } from "../../services/api/Professor";
+import { HaiwangIndex, ReplyRate } from "../../utils/strings";
 
 const { TextArea } = Input;
 
@@ -50,23 +51,25 @@ export default () => {
 				<img src={photourl} style={{ maxWidth: "100%", maxHeight: "100px" }} />
 			</Form.Item>
 			<Form.Item label="回复率" name="replyrate">
-				<Radio.Group defaultValue={-1} buttonStyle="solid">
-					<Radio.Button value={-1}>未知</Radio.Button>
-					<Radio.Button value={5}>不回复</Radio.Button>
-					<Radio.Button value={0}>极低</Radio.Button>
-					<Radio.Button value={1}>低</Radio.Button>
-					<Radio.Button value={2}>高</Radio.Button>
-					<Radio.Button value={3}>极高</Radio.Button>
-					<Radio.Button value={4}>必回</Radio.Button>
+				<Radio.Group defaultValue={0} buttonStyle="solid">
+					{ReplyRate.map((item, i) => {
+						return (
+							<Radio.Button value={i} key={item}>
+								{item}
+							</Radio.Button>
+						);
+					})}
 				</Radio.Group>
 			</Form.Item>
-			<Form.Item label="海王指数" name="haiwang">
-				<Radio.Group defaultValue={-1} buttonStyle="solid">
-					<Radio.Button value={-1}>未知</Radio.Button>
-					<Radio.Button value={0}>低</Radio.Button>
-					<Radio.Button value={1}>中</Radio.Button>
-					<Radio.Button value={2}>高</Radio.Button>
-					<Radio.Button value={3}>极高</Radio.Button>
+			<Form.Item label="海王指数" name="haiwang" tooltip="同时嘴上答应很多人的指数(?)">
+				<Radio.Group defaultValue={0} buttonStyle="solid">
+					{HaiwangIndex.map((item, i) => {
+						return (
+							<Radio.Button value={i} key={item}>
+								{item}
+							</Radio.Button>
+						);
+					})}
 				</Radio.Group>
 			</Form.Item>
 			<Form.Item label="详细说明" name="description">
