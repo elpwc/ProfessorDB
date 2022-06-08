@@ -23,6 +23,7 @@
 
 .itemproperties p {
 	margin: 0;
+  color: rgb(83, 83, 83);
 }
 
 .itemproperties div:first-child span:first-child {

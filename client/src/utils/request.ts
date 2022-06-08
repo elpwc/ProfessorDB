@@ -1,3 +1,4 @@
+import { message } from "antd";
 import axios, { AxiosRequestHeaders, Method } from "axios";
 import cookie from "react-cookies";
 import appconfig from "../appconfig";
@@ -48,7 +49,7 @@ service.interceptors.response.use(
 		const errResponse = err.response;
 		console.log("Oops! ", errResponse);
 
-		switch (errResponse.code) {
+		switch (errResponse.status) {
 			case 400:
 				break;
 			case 401:
@@ -56,6 +57,7 @@ service.interceptors.response.use(
 			case 403:
 				break;
 			case 404:
+				message.error('请求的页面不存在喵');
 				break;
 			case 422:
 				break;
@@ -65,7 +67,7 @@ service.interceptors.response.use(
 				break;
 		}
 
-		return errResponse?.data;
+		throw errResponse;
 	}
 );
 

@@ -22,7 +22,7 @@ export default (props: P) => {
 			.then((res) => {
 				console.log(res);
 				if (res) {
-					setprofessors(res);
+					setprofessors(res.data);
 				}
 			})
 			.catch((error) => {
