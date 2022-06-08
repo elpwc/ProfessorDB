@@ -6,6 +6,8 @@ import {
   Patch,
   Param,
   Delete,
+  HttpException,
+  HttpStatus,
 } from '@nestjs/common';
 import { ProfessorService } from './professor.service';
 import { CreateProfessorDto } from './dto/create-professor.dto';
@@ -28,8 +30,13 @@ export class ProfessorController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.professorService.findOne(+id);
+  async findOne(@Param('id') id: string) {
+    const promise = this.professorService.findOne(+id);
+    if (await promise) {
+      return promise;
+    } else {
+      throw new HttpException('not exist', HttpStatus.NOT_FOUND);
+    }
   }
 
   @Patch(':id')

@@ -8,6 +8,8 @@ import { AppModule } from './app.module';
 import * as helmet from 'helmet';
 import * as cors from 'cors';
 import { Logger } from '@nestjs/common';
+import { HttpExceptionFilter } from './filters/http-exception.filter';
+import { TransformInterceptor } from './interceptor/transform.interceptor';
 
 const PORT = 3005;
 
@@ -15,6 +17,12 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.enableCors();
+
+  // 全局注册错误的过滤器
+  app.useGlobalFilters(new HttpExceptionFilter());
+
+  // 全局注册拦截器
+  app.useGlobalInterceptors(new TransformInterceptor());
 
   // swagger
   const config = new DocumentBuilder()
