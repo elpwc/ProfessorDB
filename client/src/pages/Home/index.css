@@ -50,10 +50,6 @@
 	margin: 0;
 }
 
-
-.itemproperties div:first-child{
-}
-
 .itemproperties div:first-child span:first-child{
 	font-size: 1.3rem;
 	font-family: sans-serif;
