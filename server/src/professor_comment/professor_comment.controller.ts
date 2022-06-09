@@ -6,12 +6,13 @@ import {
   Patch,
   Param,
   Delete,
+  HttpException,
+  HttpStatus,
 } from '@nestjs/common';
 import { ProfessorCommentService } from './professor_comment.service';
 import { CreateProfessorCommentDto } from './dto/create-professor_comment.dto';
 import { UpdateProfessorCommentDto } from './dto/update-professor_comment.dto';
-import { ApiResponse, ApiTags } from '@nestjs/swagger';
-import { Professor } from 'src/professor/entities/professor.entity';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('professorComment')
 @ApiTags('professorComment')
@@ -26,15 +27,18 @@ export class ProfessorCommentController {
   }
 
   @Get()
-  @ApiResponse({ status: 200, description: 'success', type: Array })
   findAll() {
     return this.professorCommentService.findAll();
   }
 
   @Get(':id')
-  @ApiResponse({ status: 200, description: 'success', type: Professor })
-  findOne(@Param('id') id: string) {
-    return this.professorCommentService.findOne(+id);
+  async findOne(@Param('id') id: string) {
+    const promise = this.professorCommentService.findOne(+id);
+    if (await promise) {
+      return promise;
+    } else {
+      throw new HttpException('not exist', HttpStatus.NOT_FOUND);
+    }
   }
 
   @Patch(':id')
