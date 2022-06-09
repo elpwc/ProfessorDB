@@ -20,6 +20,14 @@ export class Professor {
   @ApiProperty()
   nameen: string;
 
+  @Column({ length: 32, default: '日本' })
+  @ApiProperty()
+  country: string;
+
+  @Column({ default: false })
+  @ApiProperty()
+  canSpeakChinese: boolean;
+
   @Column({ length: 32, default: '' })
   @ApiProperty()
   university: string;
@@ -56,12 +64,20 @@ export class Professor {
   @ApiProperty()
   replyrate: number;
 
-  @Column({ length: 4096, default: '' })
+  @Column({ length: 2048, default: '' })
   @ApiProperty()
   description: string;
 
+  @Column({ length: 2048, default: '' })
   @ApiProperty()
+  mine: string;
+
+  @Column({ length: 1024, default: '' })
+  @ApiProperty()
+  students: string;
+
   @OneToMany(() => ProfessorComment, (comment) => comment.professor)
+  @ApiProperty()
   comments: ProfessorComment[];
 
   @Column('datetime', { default: () => 'CURRENT_TIMESTAMP' })

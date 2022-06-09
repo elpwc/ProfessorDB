@@ -42,4 +42,16 @@ export class CreateProfessorDto {
 
   @ApiProperty()
   description: string;
+
+  @ApiProperty()
+  mine: string;
+
+  @ApiProperty()
+  students: string;
+
+  @ApiProperty()
+  country: string;
+
+  @ApiProperty()
+  canSpeakChinese: boolean;
 }
