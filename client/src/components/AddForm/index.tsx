@@ -1,7 +1,7 @@
-import { Button, Form, Input, Radio, Rate } from "antd";
+import { Button, Checkbox, Form, Input, Radio, Rate } from "antd";
 import { useState } from "react";
 import { createProfessor } from "../../services/api/Professor";
-import { HaiwangIndex, ReplyRate } from "../../utils/strings";
+import { Countries, HaiwangIndex, ReplyRate } from "../../utils/strings";
 
 const { TextArea } = Input;
 
@@ -34,6 +34,20 @@ export default () => {
 			</Form.Item>
 			<Form.Item label="方向" name="direction">
 				<Input />
+			</Form.Item>
+			<Form.Item label="哪里人" name="country">
+				<Radio.Group defaultValue={"日本"} buttonStyle="solid">
+					{Countries.map((item, i) => {
+						return (
+							<Radio.Button value={item} key={item}>
+								{item}
+							</Radio.Button>
+						);
+					})}
+				</Radio.Group>
+			</Form.Item>
+			<Form.Item label="是否会汉语" name="canSpeakChinese">
+				<Checkbox />
 			</Form.Item>
 			<Form.Item label="邮箱" name="email">
 				<Input />
@@ -72,10 +86,19 @@ export default () => {
 					})}
 				</Radio.Group>
 			</Form.Item>
-			<Form.Item label="详细说明" name="description">
+			<Form.Item label="推荐度" name="recommendation">
+				<Rate />
+			</Form.Item>
+			<Form.Item label="学生情况（m, d）" name="students">
 				<TextArea />
 			</Form.Item>
-			<Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+			<Form.Item label="介绍 / 详细说明" name="description">
+				<TextArea />
+			</Form.Item>
+			<Form.Item label="避雷 / 毕业难度" name="mine">
+				<TextArea />
+			</Form.Item>
+			<Form.Item wrapperCol={{ offset: 8, span: 4 }}>
 				<Button type="primary" htmlType="submit">
 					录入
 				</Button>
