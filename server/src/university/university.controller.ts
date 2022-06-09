@@ -10,8 +10,10 @@ import {
 import { UniversityService } from './university.service';
 import { CreateUniversityDto } from './dto/create-university.dto';
 import { UpdateUniversityDto } from './dto/update-university.dto';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('university')
+@ApiTags('University')
 export class UniversityController {
   constructor(private readonly universityService: UniversityService) {}
 
