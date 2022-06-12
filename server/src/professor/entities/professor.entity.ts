@@ -28,6 +28,14 @@ export class Professor {
   @ApiProperty()
   canSpeakChinese: boolean;
 
+  @Column({ default: 0 })
+  @ApiProperty()
+  gender: number;
+
+  @Column({ default: 0 })
+  @ApiProperty()
+  birthYear: number;
+
   @Column({ length: 32, default: '' })
   @ApiProperty()
   university: string;

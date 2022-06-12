@@ -17,6 +17,12 @@ export class CreateProfessorDto {
   university: string;
 
   @ApiProperty()
+  gender: number;
+
+  @ApiProperty()
+  birthYear: number;
+
+  @ApiProperty()
   photo: string;
 
   @ApiProperty()
