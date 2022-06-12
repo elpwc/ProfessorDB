@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 import Main from "./pages/Main";
 import ErrorPage from "./pages/ErrorPage";
 import Professor from "./pages/Professor";
-import Add from "./pages/Add";
+import Add from "./pages/AddProfessor";
 import About from "./pages/About";
 import TestPage from "./pages/TestPage";
 
