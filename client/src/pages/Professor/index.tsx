@@ -49,15 +49,21 @@ export default (props: P) => {
             </div>
             <div>回复率: {ReplyRate[professor?.replyrate ?? 0]}</div>
             <div className="professorInfoText">
-              <p>学生情况：</p>
+              <div>
+                <p>学生情况</p>
+              </div>
               <p>{professor?.students || '(等人补充)'}</p>
             </div>
             <div className="professorInfoText">
-              <p>介绍和说明：</p>
+              <div>
+                <p>介绍和说明</p>
+              </div>
               <p>{professor?.description || '(等人补充)'}</p>
             </div>
             <div className="professorInfoText">
-              <p>避雷建议：</p>
+              <div>
+                <p>避雷建议</p>
+              </div>
               <p>{professor?.mine || '(等人补充)'}</p>
             </div>
           </div>
