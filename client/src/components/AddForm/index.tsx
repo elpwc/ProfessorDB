@@ -17,6 +17,11 @@ export default () => {
       layout="horizontal"
       labelCol={{ span: 4 }}
       wrapperCol={{ span: 14 }}
+	  initialValues={{
+		country: '日本',
+		replyrate: 0,
+		haiwang: 0
+	  }}
       onFinish={(data) => {
         createProfessor(data)
           .then((res) => {
@@ -51,8 +56,8 @@ export default () => {
       <Form.Item label="方向" name="direction">
         <Input />
       </Form.Item>
-      <Form.Item label="哪里人" name="country">
-        <Radio.Group defaultValue={"日本"} buttonStyle="solid">
+      <Form.Item label="哪里人" name="country" >
+        <Radio.Group buttonStyle="solid">
           {Countries.map((item, i) => {
             return (
               <Radio.Button value={item} key={item}>
@@ -79,7 +84,7 @@ export default () => {
         />
       </Form.Item>
       <Form.Item label="回复率" name="replyrate">
-        <Radio.Group defaultValue={0} buttonStyle="solid">
+        <Radio.Group buttonStyle="solid">
           {ReplyRate.map((item, i) => {
             return (
               <Radio.Button value={i} key={item}>
@@ -94,7 +99,7 @@ export default () => {
         name="haiwang"
         tooltip="同时嘴上答应很多人的指数(?)"
       >
-        <Radio.Group defaultValue={0} buttonStyle="solid">
+        <Radio.Group buttonStyle="solid">
           {HaiwangIndex.map((item, i) => {
             return (
               <Radio.Button value={i} key={item}>
