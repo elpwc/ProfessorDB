@@ -1,6 +1,4 @@
 .maininfo {
-  display: flex;
-  justify-content: space-between;
   width: 100%;
   height: fit-content;
   padding: 5px;
@@ -11,6 +9,11 @@
 .maininfo .itemproperties {
   width: 100%;
   font-family: serif;
+}
+
+.mainProperties {
+  display: flex;
+  justify-content: space-between;
 }
 
 .maininfo .itemproperties p {

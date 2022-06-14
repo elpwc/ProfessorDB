@@ -34,18 +34,30 @@ export default (props: P) => {
       <div className="infobox">
         <div className="maininfo">
           <div className="itemproperties">
-            <div>
-              <span>{professor?.namejp}</span>
+            <div className='mainProperties'>
+              <div>
+                <div>
+                  <span>{professor?.namejp}</span>
+                </div>
+                <p>{professor?.university + ' ' + professor?.subject}</p>
+                <p>{professor?.direction}</p>
+                <p>{professor?.country !== '其他' ? professor?.country : ''}</p>
+              </div>
+              {professor?.photo ? (
+                <div>
+                  <img src={professor?.photo} height="80px" />
+                </div>
+              ) : (
+                <></>
+              )}
             </div>
-            <p>{professor?.university + ' ' + professor?.subject}</p>
-            <p>{professor?.direction}</p>
-            <p>{professor?.country !== '其他' ? professor?.country : ''}</p>
+
             <div>
-              推荐度: <Rate disabled value={professor?.recommendation} />
+              推荐指数: <Rate disabled value={professor?.recommendation} />
             </div>
             <div>
               海王指数: <Rate disabled value={professor?.haiwang} />
-              {HaiwangIndex[professor?.haiwang ?? 0]}
+              （{HaiwangIndex[professor?.haiwang ?? 0]}）
             </div>
             <div>回复率: {ReplyRate[professor?.replyrate ?? 0]}</div>
             <div className="professorInfoText">
@@ -67,14 +79,6 @@ export default (props: P) => {
               <p>{professor?.mine || '(等人补充)'}</p>
             </div>
           </div>
-
-          {professor?.photo ? (
-            <div>
-              <img src={professor?.photo} height="80px" />
-            </div>
-          ) : (
-            <></>
-          )}
         </div>
       </div>
       <div className="commentsContainer">
