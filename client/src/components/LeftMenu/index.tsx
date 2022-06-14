@@ -58,7 +58,7 @@ export default () => {
 			<nav className="leftnav">
 				{menu.map((menuitem) => {
 					return (
-						<Link to={menuitem.to} className={"navitemContainer" + (mylocation.pathname.split("/").pop() === menuitem.route ? " checked" : "")}>
+						<Link key={menuitem.title} to={menuitem.to} className={"navitemContainer" + (mylocation.pathname.split("/").pop() === menuitem.route ? " checked" : "")}>
 							<p className="navitem">
 								<span>{menuitem.icon}</span>
 								<span>{menuitem.title}</span>
