@@ -55,7 +55,7 @@ export default (props: P) => {
         <div className="list">
           {professors.map((professor: API.Professor) => {
             return (
-              <Link to={'/professor/' + professor.id}>
+              <Link to={'/professor/' + professor.id} key={professor.id}>
                 <ListItem professor={professor} />
               </Link>
             );
