@@ -1,3 +1,3 @@
 export default () => {
-	return <div className="todofukenMapContainer"></div>;
+  return <div className="todofukenMapContainer"></div>;
 };

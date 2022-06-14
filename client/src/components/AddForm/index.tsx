@@ -1,13 +1,12 @@
-import { Button, Checkbox, Form, Input, Radio, Rate } from "antd";
-import { useEffect, useState } from "react";
-import { createProfessor } from "../../services/api/Professor";
-import { Countries, HaiwangIndex, ReplyRate } from "../../utils/strings";
+import { Button, Checkbox, Form, Input, Radio, Rate } from 'antd';
+import { createProfessor } from '../../services/api/Professor';
+import { Countries, HaiwangIndex, ReplyRate } from '../../utils/strings';
 
 const { TextArea } = Input;
 
 export default () => {
   const [form] = Form.useForm();
-  const photoValue = Form.useWatch("photo", form);
+  const photoValue = Form.useWatch('photo', form);
 
   return (
     <>
@@ -17,39 +16,27 @@ export default () => {
         labelCol={{ span: 4 }}
         wrapperCol={{ span: 14 }}
         initialValues={{
-          country: "日本",
+          country: '日本',
           replyrate: 0,
           haiwang: 0,
         }}
-        onFinish={(data) => {
+        onFinish={data => {
           createProfessor(data)
-            .then((res) => {
+            .then(res => {
               console.log(res);
             })
-            .catch((error) => {
-              console.log("error", error);
+            .catch(error => {
+              console.log('error', error);
             });
         }}
       >
-        <Form.Item
-          label="教授名字"
-          name="namejp"
-          rules={[{ required: true, message: "名字是必需的" }]}
-        >
+        <Form.Item label="教授名字" name="namejp" rules={[{ required: true, message: '名字是必需的' }]}>
           <Input />
         </Form.Item>
-        <Form.Item
-          label="所在大学"
-          name="university"
-          rules={[{ required: true, message: "所在大学是必需的" }]}
-        >
+        <Form.Item label="所在大学" name="university" rules={[{ required: true, message: '所在大学是必需的' }]}>
           <Input />
         </Form.Item>
-        <Form.Item
-          label="专攻"
-          name="subject"
-          rules={[{ required: true, message: "专攻是必需的" }]}
-        >
+        <Form.Item label="专攻" name="subject" rules={[{ required: true, message: '专攻是必需的' }]}>
           <Input />
         </Form.Item>
         <Form.Item label="方向" name="direction">
@@ -78,10 +65,7 @@ export default () => {
         <Form.Item label="图片" name="photo">
           <Input placeholder="请在此粘贴图标链接" />
         </Form.Item>
-        <img
-          src={photoValue}
-          style={{ maxWidth: "100%", maxHeight: "100px" }}
-        />
+        <img src={photoValue} style={{ maxWidth: '100%', maxHeight: '100px' }} />
         <Form.Item label="回复率" name="replyrate">
           <Radio.Group buttonStyle="solid">
             {ReplyRate.map((item, i) => {
@@ -93,11 +77,7 @@ export default () => {
             })}
           </Radio.Group>
         </Form.Item>
-        <Form.Item
-          label="海王指数"
-          name="haiwang"
-          tooltip="同时嘴上答应很多人的指数(?)"
-        >
+        <Form.Item label="海王指数" name="haiwang" tooltip="同时嘴上答应很多人的指数(?)">
           <Radio.Group buttonStyle="solid">
             {HaiwangIndex.map((item, i) => {
               return (

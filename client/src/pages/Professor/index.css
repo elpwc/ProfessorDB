@@ -4,7 +4,7 @@
 	height: fit-content;
 	padding: 5px;
 	border-bottom: solid 1px rgb(179, 196, 223);
-  transition: all 0.2s;
+	transition: all 0.2s;
 }
 
 .maininfo .itemproperties {
@@ -13,7 +13,7 @@
 
 .maininfo .itemproperties p {
 	margin: 0;
-  color: rgb(83, 83, 83);
+	color: rgb(83, 83, 83);
 }
 
 .maininfo .itemproperties div:first-child span:first-child {

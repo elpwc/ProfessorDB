@@ -1,19 +1,19 @@
 export const TestProfessors = [
-    {
-        id: 114514,
-        namejp: '田所浩二',
-        university: '下北泽农林技术学院大学',
-        subject: '茶业',
-        direction: '红茶栽培与冲调',
-        country: '日本',
-        canSpeakChinese: false,
-        photo: '',
-        email: 'tadokorokouji_ochadaisuki@shimokitazawa.jp',
-        website: 'http://chagyou.shimokitazawauniversity.edu.jp/koucha/?professor=tadokorokouji',
-        recommendation: 1,
-        haiwang: 5,
-        replyrate: 2,
-        description: `
+  {
+    id: 114514,
+    namejp: '田所浩二',
+    university: '下北泽农林技术学院大学',
+    subject: '茶业',
+    direction: '红茶栽培与冲调',
+    country: '日本',
+    canSpeakChinese: false,
+    photo: '',
+    email: 'tadokorokouji_ochadaisuki@shimokitazawa.jp',
+    website: 'http://chagyou.shimokitazawauniversity.edu.jp/koucha/?professor=tadokorokouji',
+    recommendation: 1,
+    haiwang: 5,
+    replyrate: 2,
+    description: `
         1145141919810
         まず年齢を教えてくれないかな
         24歳です
@@ -26,11 +26,9 @@ export const TestProfessors = [
         じゃあ、オナニーとかっていうのは？
         やりますねぇ！
         `,
-        mine: `
+    mine: `
         学生を家に連れて、薬入れた紅茶で昏睡状態にさせて、レープする噂がある
         `,
-        students: '无',
-        
-
-    } as API.Professor
+    students: '无',
+  } as API.Professor,
 ];
