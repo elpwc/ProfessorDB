@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router';
 import { OuterLinkSVG } from '../../utils/svg';
 import './index.css';
-
+import logo_kari from '../../resources/school_sensei_kokuban.png';
 interface P {}
 
 export default (props: P) => {
@@ -19,6 +19,7 @@ export default (props: P) => {
   return (
     <div className="aboutContainer">
       <div className="titleContainer">
+        <img src={logo_kari} width="35%"/>
         <p style={{ fontSize: '1.2rem' }}>
           <ruby>
             日本大学院<rp>(</rp>
