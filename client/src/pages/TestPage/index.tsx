@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router';
+import TodofukenMapSelector from '../../components/TodofukenMapSelector';
 import TodofukenSelector from '../../components/TodofukenSelector';
 import './index.css';
 
@@ -23,6 +24,8 @@ export default (props: P) => {
           console.log(e);
         }}
       />
+
+      <TodofukenMapSelector />
     </>
   );
 };

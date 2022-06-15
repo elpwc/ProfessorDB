@@ -1,0 +1,9 @@
+.chihouContainer{
+    width: 300px;
+    height: 300px;
+}
+
+.chihouContainer .chihou{
+    border: solid 1px black;
+    position: absolute;
+}
