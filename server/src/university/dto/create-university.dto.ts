@@ -1,4 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { Professor } from 'src/professor/entities/professor.entity';
 
 export class CreateUniversityDto {
   @ApiProperty()
@@ -15,4 +16,7 @@ export class CreateUniversityDto {
 
   @ApiProperty()
   description: string;
+
+  @ApiProperty()
+  professors: Professor[];
 }

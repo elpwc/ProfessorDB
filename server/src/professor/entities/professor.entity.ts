@@ -1,6 +1,13 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { ProfessorComment } from 'src/professor_comment/entities/professor_comment.entity';
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { University } from 'src/university/entities/university.entity';
+import {
+  Column,
+  Entity,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity()
 export class Professor {
@@ -35,10 +42,6 @@ export class Professor {
   @Column({ default: 0 })
   @ApiProperty()
   birthYear: number;
-
-  @Column({ length: 32, default: '' })
-  @ApiProperty()
-  university: string;
 
   @Column({ length: 1024, default: '' })
   @ApiProperty()
@@ -87,6 +90,10 @@ export class Professor {
   @OneToMany(() => ProfessorComment, (comment) => comment.professor)
   @ApiProperty()
   comments: ProfessorComment[];
+
+  @ManyToOne(() => University, (university) => university.professors)
+  @ApiProperty()
+  university: University;
 
   @Column('datetime', { default: () => 'CURRENT_TIMESTAMP' })
   @ApiProperty()

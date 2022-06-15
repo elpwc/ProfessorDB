@@ -1,4 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { University } from 'src/university/entities/university.entity';
 
 export class CreateProfessorDto {
   @ApiProperty()
@@ -14,7 +15,7 @@ export class CreateProfessorDto {
   nameen: string;
 
   @ApiProperty()
-  university: string;
+  university: University;
 
   @ApiProperty()
   gender: number;

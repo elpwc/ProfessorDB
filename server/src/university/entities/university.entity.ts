@@ -1,5 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Professor } from 'src/professor/entities/professor.entity';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class University {
@@ -26,6 +27,10 @@ export class University {
   @Column({ length: 4096, default: '' })
   @ApiProperty()
   description: string;
+
+  @OneToMany(() => Professor, (professor) => professor.university)
+  @ApiProperty()
+  professors: Professor[];
 
   @Column('datetime', { default: () => 'CURRENT_TIMESTAMP' })
   @ApiProperty()

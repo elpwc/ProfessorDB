@@ -8,7 +8,7 @@ export default ({ professor }: { professor: API.Professor }) => {
         <div>
           <span>{professor.namejp}</span>
         </div>
-        <p>{professor.university + ' ' + professor.subject}</p>
+        <p>{professor?.university + ' ' + professor.subject}</p>
         <p>{professor.direction}</p>
         <div>
           推荐度: <Rate disabled defaultValue={2} />
