@@ -1,5 +1,6 @@
 import { Button, Form, Input } from 'antd';
-import { createProfessor } from '../../services/api/Professor';
+import { createUniversity } from '../../services/api/University';
+import TodofukenSelector from '../TodofukenSelector';
 
 export default () => {
   return (
@@ -8,7 +9,7 @@ export default () => {
       labelCol={{ span: 4 }}
       wrapperCol={{ span: 14 }}
       onFinish={data => {
-        createProfessor(data)
+        createUniversity(data)
           .then(res => {
             console.log(res);
           })
@@ -17,11 +18,11 @@ export default () => {
           });
       }}
     >
-      <Form.Item label="大学名" name="namejp" rules={[{ required: true, message: '名字是必需的' }]}>
+      <Form.Item label="大学名" name="name" rules={[{ required: true, message: '名字是必需的' }]}>
         <Input />
       </Form.Item>
       <Form.Item label="地域" name="university" rules={[{ required: true, message: '所在大学是必需的' }]}>
-        <Input />
+        <TodofukenSelector />
       </Form.Item>
       <Form.Item label="网站" name="website">
         <Input />

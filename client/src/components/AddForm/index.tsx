@@ -1,15 +1,24 @@
-import { Button, Checkbox, Form, Input, Radio, Rate } from 'antd';
+import { Button, Checkbox, Form, Input, Radio, Rate, Select } from 'antd';
+import { useState } from 'react';
 import { createProfessor } from '../../services/api/Professor';
+import { findAllUniversity } from '../../services/api/University';
 import { Countries, HaiwangIndex, ReplyRate } from '../../utils/strings';
+import AddUniversityModal from '../AddUniversityModal';
 
 const { TextArea } = Input;
+const { Option } = Select;
 
 export default () => {
   const [form] = Form.useForm();
   const photoValue = Form.useWatch('photo', form);
 
+  const [universities, setuniversities] = useState([]);
+
+  const [addUniModalVis, setaddUniModalVis] = useState(false);
+
   return (
     <>
+      <AddUniversityModal visible={addUniModalVis} onCancel={()=>{setaddUniModalVis(false)}}/>
       <Form
         form={form}
         layout="horizontal"
@@ -34,7 +43,29 @@ export default () => {
           <Input />
         </Form.Item>
         <Form.Item label="所在大学" name="university" rules={[{ required: true, message: '所在大学是必需的' }]}>
-          <Input />
+          <Select
+            showSearch
+            defaultActiveFirstOption={false}
+            showArrow={true}
+            filterOption={false}
+            placeholder="输入大学名称选择，没有的话请添加一下谢谢茄子"
+            onSearch={e => {
+              findAllUniversity({ search: e }).then(res => {
+                if (res.data) {
+                  setuniversities(res.data);
+                }
+              });
+            }}
+            notFoundContent={<button onClick={() => {setaddUniModalVis(true)}}>添加</button>}
+          >
+            {universities.map((university: API.University) => {
+              return (
+                <Option key={university.id} value={university.id}>
+                  {university.name}
+                </Option>
+              );
+            })}
+          </Select>
         </Form.Item>
         <Form.Item label="专攻" name="subject" rules={[{ required: true, message: '专攻是必需的' }]}>
           <Input />

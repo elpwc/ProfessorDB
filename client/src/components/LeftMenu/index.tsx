@@ -23,8 +23,8 @@ export default () => {
         </svg>
       ),
       title: '学校',
-      to: '',
-      route: 'universities',
+      to: 'university',
+      route: 'university',
     },
     {
       icon: (

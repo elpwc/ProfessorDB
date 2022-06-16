@@ -6,11 +6,13 @@ import {
   Patch,
   Param,
   Delete,
+  Query,
 } from '@nestjs/common';
 import { UniversityService } from './university.service';
 import { CreateUniversityDto } from './dto/create-university.dto';
 import { UpdateUniversityDto } from './dto/update-university.dto';
 import { ApiTags } from '@nestjs/swagger';
+import { UniversityQueryDto } from './dto/queries.dto';
 
 @Controller('university')
 @ApiTags('University')
@@ -23,8 +25,12 @@ export class UniversityController {
   }
 
   @Get()
-  findAll() {
-    return this.universityService.findAll();
+  findAll(@Query() query: UniversityQueryDto) {
+    if (query.name) {
+      return this.universityService.search(query.name);
+    } else {
+      return this.universityService.findAll();
+    }
   }
 
   @Get(':id')

@@ -7,6 +7,7 @@ interface Props {
   style?: React.CSSProperties;
   value?: string;
   onChange?: (value: string) => void;
+  placeholder?: string;
 }
 
 export default (props: Props) => {
@@ -47,10 +48,14 @@ export default (props: Props) => {
       chihou: '沖縄地方',
       todofukens: ['沖縄県'],
     },
+    {
+      chihou: '海外',
+      todofukens: ['海外'],
+    },
   ];
 
   return (
-    <Select className={props?.className} showSearch style={props?.style} onChange={props?.onChange} value={props?.value}>
+    <Select className={props?.className} showSearch style={props?.style} onChange={props?.onChange} value={props?.value} placeholder={props?.placeholder}>
       {todofukens.map(chihou => {
         return (
           <OptGroup label={chihou.chihou} key={chihou.chihou}>
